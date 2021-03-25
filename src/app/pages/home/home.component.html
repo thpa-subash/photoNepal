@@ -1,0 +1,245 @@
+<div nz-row>
+  <div class="performanceTitle">
+    <div
+      nz-col
+      [nzXs]="{ span: 10, offset: 1 }"
+      [nzLg]="{ span: 10, offset: 2 }"
+    >
+      <h3>Performance</h3>
+    </div>
+    <div
+      nz-col
+      [nzXs]="{ span: 12, offset: 1 }"
+      [nzLg]="{ span: 12, offset: 2 }"
+    >
+      <h5>
+        <button nz-button nzShape="round" nzType="primary">View All</button>
+      </h5>
+    </div>
+  </div>
+  <nz-divider></nz-divider>
+
+  <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 8, offset: 0 }">
+    <div class="userStats">
+      <nz-statistic
+        [nzTitle]="name"
+        [nzValue]="(20034553 | number: '1.0-2')!"
+      ></nz-statistic>
+      <div class="userPerfo">
+        <a>Increased By :</a>
+        <nz-statistic
+          [nzValue]="(11.28 | number: '1.0-2')!"
+          [nzPrefix]="prefixTplOne"
+          [nzSuffix]="'%'"
+          [nzValueStyle]="{ color: '#3F8600', 'font-size': '15px' }"
+        >
+        </nz-statistic>
+        <ng-template #name><h3>Users</h3></ng-template>
+
+        <ng-template #prefixTplOne
+          ><i nz-icon nzType="arrow-up"></i
+        ></ng-template>
+      </div>
+    </div>
+  </div>
+  <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 8, offset: 0 }">
+    <div class="nameStats">
+      <nz-statistic
+        [nzTitle]="names"
+        [nzValue]="(20034553 | number: '1.0-2')!"
+      ></nz-statistic>
+      <div class="photoPerfo">
+        <a style="color: red">Decreased by:</a>
+        <nz-statistic
+          [nzValue]="(11.28 | number: '1.0-2')!"
+          [nzPrefix]="prefixTplTwo"
+          [nzSuffix]="'%'"
+          [nzValueStyle]="{ color: 'red', 'font-size': '15px' }"
+        >
+        </nz-statistic>
+      </div>
+      <ng-template #names><h3>Photos</h3></ng-template>
+
+      <ng-template #prefixTplTwo
+        ><i nz-icon nzType="arrow-down"></i
+      ></ng-template>
+    </div>
+  </div>
+  <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzLg]="{ span: 8, offset: 0 }">
+    <div class="commentStats">
+      <nz-statistic
+        [nzTitle]="namess"
+        [nzValue]="(20034553 | number: '1.0-2')!"
+      ></nz-statistic>
+      <div class="commentPerfo">
+        <a>Increased by:</a>
+        <nz-statistic
+          [nzValue]="(11.28 | number: '1.0-2')!"
+          [nzPrefix]="prefixTplThree"
+          [nzSuffix]="'%'"
+          [nzValueStyle]="{ color: '#3F8600', 'font-size': '15px' }"
+        >
+        </nz-statistic>
+      </div>
+      <ng-template #namess><h3>Comments</h3></ng-template>
+
+      <ng-template #prefixTplThree
+        ><i nz-icon nzType="arrow-up"></i
+      ></ng-template>
+    </div>
+  </div>
+</div>
+<div class="inner-content">
+  <div class="homeStats">
+    <div nz-row>
+      <div
+        class="graph"
+        nz-col
+        [nzXs]="{ span: 24, offset: 0 }"
+        [nzLg]="{ span: 16, offset: 1 }"
+      >
+        <div style="float: right; margin-right: 15px">
+          <nz-range-picker
+            [(ngModel)]="date"
+            (ngModelChange)="onChange($event)"
+          ></nz-range-picker>
+        </div>
+        <div class="chart-wrapper">
+          <canvas
+            baseChart
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            chartType="line"
+            [plugins]="lineChartPlugins"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div
+        style="border: 1px solid #ddd"
+        nz-col
+        [nzXs]="{ span: 24, offset: 1 }"
+        [nzLg]="{ span: 6, offset: 1 }"
+      >
+        <div class="newUsers">
+          <div class="headName">
+            <h3>New Users</h3>
+            <h5 style="float-right">
+              <button nz-button nzShape="round" nzType="primary">
+                View All
+              </button>
+            </h5>
+          </div>
+          <nz-list>
+            <nz-list-item *ngFor="let item of data">
+              <nz-list-item-meta
+                *ngIf="item"
+                nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                [nzDescription]="item.email"
+              >
+                <nz-list-item-meta-title>
+                  <a href="https://ng.ant.design">{{ item.name }}</a>
+                </nz-list-item-meta-title>
+              </nz-list-item-meta>
+            </nz-list-item>
+          </nz-list>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nz-divider></nz-divider>
+  <div class="topStats">
+    <div nz-row>
+      <div
+        nz-col
+        [nzXs]="{ span: 24, offset: 0 }"
+        [nzLg]="{ span: 7, offset: 1 }"
+      >
+        <h3>Popular Photo</h3>
+        <nz-divider></nz-divider>
+        <div class="viewsPhoto">
+          <nz-list>
+            <nz-list-item *ngFor="let item of data">
+              <nz-list-item-meta
+                *ngIf="item"
+                nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                [nzDescription]="item.name"
+              >
+                <nz-list-item-meta-title>
+                  <p>23B Views</p>
+                </nz-list-item-meta-title>
+              </nz-list-item-meta>
+              <ul nz-list-item-actions>
+                <nz-list-item-action><a>View</a></nz-list-item-action>
+              </ul>
+            </nz-list-item>
+          </nz-list>
+        </div>
+        <button nz-button nzShape="round" nzType="primary">
+          View Complete Reports<i nz-icon nzType="arrow-right"></i>
+        </button>
+      </div>
+      <div
+        nz-col
+        [nzXs]="{ span: 24, offset: 0 }"
+        [nzLg]="{ span: 7, offset: 1 }"
+      >
+        <h3>Top Photographers</h3>
+        <nz-divider></nz-divider>
+        <div class="viewsPhoto">
+          <nz-list>
+            <nz-list-item *ngFor="let item of data">
+              <nz-list-item-meta
+                *ngIf="item"
+                nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                [nzDescription]="item.name"
+              >
+                <nz-list-item-meta-title>
+                  <p>23B Photos</p>
+                </nz-list-item-meta-title>
+              </nz-list-item-meta>
+              <ul nz-list-item-actions>
+                <nz-list-item-action><a>View</a></nz-list-item-action>
+              </ul>
+            </nz-list-item>
+          </nz-list>
+        </div>
+        <button nz-button nzShape="round" nzType="primary">
+          View Complete Reports<i nz-icon nzType="arrow-right"></i>
+        </button>
+      </div>
+      <div
+        nz-col
+        [nzXs]="{ span: 24, offset: 0 }"
+        [nzLg]="{ span: 7, offset: 1 }"
+      >
+        <h3>Top Follower</h3>
+        <nz-divider></nz-divider>
+        <div class="viewsPhoto">
+          <nz-list>
+            <nz-list-item *ngFor="let item of data">
+              <nz-list-item-meta
+                *ngIf="item"
+                nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                [nzDescription]="item.name"
+              >
+                <nz-list-item-meta-title>
+                  <p>23B Followers</p>
+                </nz-list-item-meta-title>
+              </nz-list-item-meta>
+              <ul nz-list-item-actions>
+                <nz-list-item-action><a>View</a></nz-list-item-action>
+              </ul>
+            </nz-list-item>
+          </nz-list>
+        </div>
+        <button nz-button nzShape="round" nzType="primary">
+          View Complete Reports<i nz-icon nzType="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

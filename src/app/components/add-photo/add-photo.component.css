@@ -4,11 +4,15 @@
   background: #fff;
   height: 100%;
 }
-[nz-col] {
+.imageUpload,
+.details {
   border: 1px solid rgb(192, 188, 188);
 }
 .imageUpload {
   padding: 10px;
+}
+nz-upload {
+  height: 220px !important;
 }
 .details {
   text-align: center;
@@ -19,4 +23,36 @@ form {
 }
 .tag {
   display: flex;
+}
+button {
+  width: 39%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  /* margin-right: 20px; */
+}
+:host ::ng-deep .avatar-uploader > .ant-upload {
+  width: 128px;
+  height: 128px;
+}
+.subashthapa {
+  height: 200px;
+  color: blue;
+}
+.gallery {
+  width: 100%;
+  display: block;
+  justify-content: center;
+  border-right: 1px solid rgb(192, 188, 188);
+}
+.image {
+  width: 100px;
+}
+.gallery [nz-col] {
+  margin: 10px 10px;
+}
+.details {
+  margin-top: 20px;
 }

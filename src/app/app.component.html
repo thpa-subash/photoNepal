@@ -28,9 +28,7 @@
           <li nz-menu-item nzMatchRouter>
             <a [routerLink]="['add-photo']">Add Photos</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Approve Photos</a>
-          </li>
+
           <li nz-menu-item nzMatchRouter>
             <a>Photos Category</a>
           </li>
@@ -39,7 +37,7 @@
       <li nz-submenu nzTitle="Users" nzIcon="user">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a>Users</a>
+            <a [routerLink]="['users']">Users</a>
           </li>
         </ul>
       </li>

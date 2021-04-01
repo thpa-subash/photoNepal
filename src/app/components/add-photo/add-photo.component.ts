@@ -1,8 +1,9 @@
+import { Name } from './../../models/name';
 import { Photos } from './../../models/photos';
 import { Photo, Tags } from './../../models/photo';
 import { PhotoService } from './../../services/photo.service';
 import { Component, OnInit } from '@angular/core';
-import { NzSelectSizeType } from 'ng-zorro-antd/select';
+
 import { NzUploadFile } from 'ng-zorro-antd/upload';
 import { Observable, Observer } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -19,13 +20,14 @@ import {
   styleUrls: ['./add-photo.component.css'],
 })
 export class AddPhotoComponent implements OnInit {
+  listOfOption: Array<{ label: string; value: string }> = [];
   photosList: Photo[] = [];
   editPhoto: Photo = <any>{};
-  // photoTags = <any>{};
-  photoTags = <any>{};
-  selectedTags = <any>[];
-  defaultOption = [...this.selectedTags];
+  photoTags: any = [];
+
   validateForm: FormGroup;
+  // listOfSelectedValue = [this.listOfOption[0]];
+  selectedTags = [];
 
   constructor(
     private fb: FormBuilder,
@@ -46,11 +48,11 @@ export class AddPhotoComponent implements OnInit {
   fileList: NzUploadFile[] = [];
   previewImage: string | undefined = '';
   previewVisible = false;
-  size: NzSelectSizeType = 'default';
-  listOfOption = [
-    { label: 'subash', value: 'subash' },
-    { label: 'thapa', value: 'subash1' },
-  ];
+
+  // listOfOption = [
+  //   { label: 'subash', value: 'subash' },
+  //   { label: 'thapa', value: 'subash1' },
+  // ];
   editId: string | null = null;
 
   uploadText(id: any) {
@@ -107,13 +109,16 @@ export class AddPhotoComponent implements OnInit {
     });
   }
   photoDetails(id: number) {
+    const children: Array<{ label: string; value: string }> = [];
     this.editPhoto = this.photosList.filter((n) => n.id == id)[0];
-    const tagees = this.editPhoto.tags.split(',');
-    this.selectedTags = tagees;
-    this.photoTags = tagees.map((name) => ({ name }));
-    console.log(this.editPhoto);
+    let tagees = this.editPhoto.tags.split(',');
 
-    console.log(this.selectedTags);
-    console.log(this.photoTags);
+    this.photoTags = tagees;
+
+    let don = tagees.map((name) => {
+      children.push({ label: name, value: name });
+    });
+    this.listOfOption = children;
+    this.selectedTags = this.photoTags;
   }
 }

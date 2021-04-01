@@ -19,11 +19,13 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzTableModule } from 'ng-zorro-antd/table';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
   exports: [
     NzSelectModule,
+    NzTableModule,
     NzUploadModule,
     NzLayoutModule,
     NzMenuModule,

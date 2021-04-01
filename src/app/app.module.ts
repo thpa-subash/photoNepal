@@ -24,6 +24,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AddPhotoComponent } from './components/add-photo/add-photo.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UsersComponent } from './components/users/users.component';
 registerLocaleData(en);
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -32,7 +33,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(
   (key) => antDesignIcons[key]
 );
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AddPhotoComponent],
+  declarations: [AppComponent, HomeComponent, AddPhotoComponent, UsersComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

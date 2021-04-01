@@ -1,3 +1,4 @@
+import { UsersComponent } from './components/users/users.component';
 import { AddPhotoComponent } from './components/add-photo/add-photo.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
@@ -8,6 +9,7 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
   { path: 'add-photo', component: AddPhotoComponent, pathMatch: 'full' },
+  { path: 'users', component: UsersComponent },
   // { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) }
 ];
 

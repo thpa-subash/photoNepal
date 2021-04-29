@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 })
 export class PhotoService {
   apiUrl =
-    'https://pixabay.com/api/?key=20927576-00711b1e848ff430be284c195&q=yellow+flowers&image_type=photo&pretty=true';
+    'https://pixabay.com/api/?key=21335042-992c2d1f6f4940691aba03dd0&q=man+laptop&image_type=photo';
   constructor(public http: HttpClient) {}
   // https://jsonplaceholder.typicode.com/albums/1/photos
   getPhotos() {

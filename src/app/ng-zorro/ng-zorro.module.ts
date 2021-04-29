@@ -20,10 +20,14 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
   exports: [
+    NzDropDownModule,
+    NzAvatarModule,
     NzSelectModule,
     NzTableModule,
     NzUploadModule,

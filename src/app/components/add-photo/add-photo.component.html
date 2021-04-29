@@ -54,11 +54,7 @@
                 [nzLg]="{ span: 5, offset: 0 }"
                 (click)="photoDetails(data.id)"
               >
-                <img
-                  src="{{ data.largeImageURL }}"
-                  width="100%"
-                  height="auto"
-                />
+                <img src="{{ data.previewURL }}" width="100%" height="auto" />
               </div>
             </div>
           </div>
@@ -84,121 +80,53 @@
                 />
               </nz-form-control>
             </nz-form-item>
-
             <nz-form-item>
+              <nz-form-label [nzSpan]="7">Tags</nz-form-label>
+              <nz-form-control [nzSpan]="15">
+                <input
+                  nz-input
+                  placeholder=""
+                  [(ngModel)]="editPhoto.tags"
+                  formControlName="tags"
+                />
+              </nz-form-control>
+            </nz-form-item>
+            <!-- <nz-form-item>
               <nz-form-label [nzSpan]="7">Tag</nz-form-label>
               <nz-form-control [nzSpan]="15">
                 <nz-select
-                  [(ngModel)]="this.selectedTags"
+                  [(ngModel)]="editPhoto.sel"
                   nzMode="tags"
-                  formControlName="tag"
-                  nzPlaceHolder="Please select Tags"
+                  formControlName="tags"
+                  nzPlaceHolder="Please select Tags afs"
                 >
                   <nz-option
-                    *ngFor="let attribute of this.listOfOption"
+                    *ngFor="let attribute of sub"
                     [nzLabel]="attribute.label"
-                    [nzValue]="attribute"
+                    [nzValue]="attribute.value"
                   ></nz-option>
                 </nz-select>
               </nz-form-control>
-            </nz-form-item>
+            </nz-form-item> -->
 
             <nz-form-item>
               <nz-form-label [nzSpan]="7">Description</nz-form-label>
               <nz-form-control [nzSpan]="15">
                 <textarea
                   nz-input
-                  formControlName="largeImageURL"
+                  formControlName="previewURL"
                   placeholder=""
-                  [(ngModel)]="editPhoto.largeImageURL"
+                  [(ngModel)]="editPhoto.previewURL"
                   nzAutosize
                   rows="4"
                 ></textarea>
               </nz-form-control>
             </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSpan]="7">Tag</nz-form-label>
-              <nz-form-control [nzSpan]="15">
-                <nz-select
-                  nzMode="tags"
-                  [(ngModel)]="this.selectedTags"
-                  formControlName="tag"
-                  nzPlaceHolder="Please select tag"
-                >
-                  <nz-option
-                    *ngFor="let attributes of this.listOfOption"
-                    [nzLabel]="attributes.label"
-                    [nzValue]="attributes"
-                  ></nz-option>
-                </nz-select>
-              </nz-form-control>
-            </nz-form-item>
           </form>
+
           <button nz-button nzType="primary" nzShape="round">Submit</button>
         </div>
       </div>
     </div>
   </div>
-  <!-- <div>
-    <div nz-row>
-      <div
-        nz-col
-        [nzXs]="{ span: 24, offset: 0 }"
-        [nzLg]="{ span: 14, offset: 1 }"
-      >
-        <div class="gallery">
-          <div class="image">
-            <img src="../../../assets/img.jpg" width="100px" height="auto" />
-          </div>
-        </div>
-        <div
-          nz-col
-          [nzXs]="{ span: 24, offset: 0 }"
-          [nzLg]="{ span: 8, offset: 1 }"
-        >
-          <div class="details">
-            <h4>Attachment Details</h4>
-            <form nz-form>
-              <nz-form-item>
-                <nz-form-label [nzSpan]="7">Title</nz-form-label>
-                <nz-form-control [nzSpan]="15">
-                  <input nz-input placeholder="" />
-                </nz-form-control>
-              </nz-form-item>
-              <nz-form-item>
-                <nz-form-label [nzSpan]="7">Tag</nz-form-label>
-                <nz-form-control [nzSpan]="15">
-                  <nz-select
-                    [nzSize]="size"
-                    nzMode="tags"
-                    nzPlaceHolder="Please select tag"
-                  >
-                    <nz-option
-                      *ngFor="let option of listOfOption"
-                      [nzLabel]="option.label"
-                      [nzValue]="option.value"
-                    ></nz-option>
-                  </nz-select>
-                </nz-form-control>
-              </nz-form-item>
-              <nz-form-item>
-                <nz-form-label [nzSpan]="7">Description</nz-form-label>
-                <nz-form-control [nzSpan]="15">
-                  <textarea
-                    nz-input
-                    placeholder=""
-                    nzAutosize
-                    rows="4"
-                  ></textarea>
-                </nz-form-control>
-              </nz-form-item>
-            </form>
-            <button nz-button nzType="primary" [nzSize]="size" nzShape="round">
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>-->
 </div>

@@ -34,24 +34,49 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzTitle="Users" nzIcon="user">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a [routerLink]="['users']">Users</a>
-          </li>
-        </ul>
-      </li>
     </ul>
   </nz-sider>
   <nz-layout class="right-layout">
     <nz-header>
       <div class="app-header">
+        <div class="header-right">
+          <div class="header-right-content">
+            <div>
+              <i nz-icon nzType="bell" style="font-size: 24px; color: #08c"></i>
+            </div>
+            <div>
+              <a nz-dropdown [nzDropdownMenu]="menu">
+                <nz-avatar nzIcon="user"></nz-avatar>
+              </a>
+            </div>
+          </div>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu nzSelectable>
+              <li nz-menu-item>
+                <i nz-icon nzType="user" style="color: black"></i> Profile
+              </li>
+              <li nz-menu-item>2nd menu item</li>
+              <li nz-menu-item>
+                <i nz-icon nzType="setting" style="color: black"></i> Settings
+              </li>
+              <li nz-menu-item>
+                <i nz-icon nzType="logout" style="color: black"></i> Logout
+              </li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
+
         <!--<span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <i
             class="trigger"
             nz-icon
             [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
           ></i>
+           <a nz-dropdown [nzDropdownMenu]="menu">
+      Hover me
+      <i nz-icon nzType="down"></i>
+    </a>
+
         </span>-->
       </div>
     </nz-header>

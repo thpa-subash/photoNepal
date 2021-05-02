@@ -26,13 +26,14 @@ export class UsersComponent implements OnInit {
   }
   userStatus = [
     {
-      status: 'Pending',
+      status: 'Premium',
     },
-    { status: 'Approve' },
+    { status: 'Standard' },
   ];
   data = [
-    { id: 1, name: 'subash', status: 'Pending' },
-    { id: 2, name: 'subash', status: 'Pending' },
+    { id: 1, name: 'subash', photos: 50, status: 'Standard' },
+    { id: 2, name: 'subash', photos: 20, status: 'Standard' },
+    { id: 3, name: 'Zookti', photos: 40, status: 'Standard' },
   ];
   size: NzSelectSizeType = 'default';
 }

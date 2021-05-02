@@ -71,31 +71,40 @@ nz-header {
 .app-header {
   position: relative;
   height: 64px;
-  padding: 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 .header-right {
-  width: 30%;
-  float: right;
+  /* width: 30%;
+  float: right; */
 }
 .header-right-content {
-  width: 28%;
-  float: right;
+  /* width: 28%;
+  float: right; */
   color: black;
 
-  display: inline-flex;
+  display: flex;
   justify-content: space-around;
+}
+.notification,
+.userAccount {
+  margin: 0 10px;
 }
 .header-right-content i {
   margin-top: 20px;
 }
-
+nz-list:hover .notify {
+  cursor: pointer;
+}
 @media screen and (max-width: 500px) {
   .right-layout {
     margin-left: 70px;
   }
-  .header-right {
-    width: 80%;
+  .notification,
+  .userAccount {
+    margin: 0 5px;
   }
 }

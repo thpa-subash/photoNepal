@@ -3,7 +3,7 @@ import { Photos } from './../../models/photos';
 import { Photo } from './../../models/photo';
 import { PhotoService } from './../../services/photo.service';
 import { Component, OnInit } from '@angular/core';
-
+import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzUploadFile } from 'ng-zorro-antd/upload';
 import { Observable, Observer } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -21,20 +21,12 @@ import {
   styleUrls: ['./add-photo.component.css'],
 })
 export class AddPhotoComponent implements OnInit {
-  subject = new BehaviorSubject([{ label: '', value: '' }]);
-  selected = new BehaviorSubject(['']);
-
   listOfOption: Array<{ label: string; value: string }> = [];
   photosList: Photo[] = [];
   editPhoto: Photo = <any>{};
   photoTags: any = [];
-  select = this.selected.asObservable();
-  subjectList = this.subject.asObservable();
-  sub: Array<{ label: string; value: string }> = [];
-  sel = [];
-  validateForm: FormGroup;
 
-  selectedTags = [];
+  validateForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -45,7 +37,7 @@ export class AddPhotoComponent implements OnInit {
     this.validateForm = this.fb.group({
       previewURL: [''],
       user: [''],
-      tags: [''],
+      tag: [''],
     });
   }
 
@@ -119,26 +111,16 @@ export class AddPhotoComponent implements OnInit {
     const children: Array<{ label: string; value: string }> = [];
     this.editPhoto = this.photosList.filter((n) => n.id == id)[0];
     let tagees = this.editPhoto.tags.split(',');
-    console.log(this.editPhoto);
+
     this.photoTags = tagees;
 
     let don = tagees.map((name) => {
       children.push({ label: name, value: name });
     });
-    console.log(don);
-    this.listOfOption = children;
-    this.subject.next(children);
-    this.selected.next(this.photoTags);
-    this.selectedTags = this.photoTags;
 
-    this.select.subscribe((data: any) => {
-      console.log(data);
-      this.sel = data;
-    });
-    this.listOfOption = this.subject.getValue();
-    this.subjectList.subscribe((data: any) => {
-      console.log(data);
-      this.sub = data;
-    });
+    this.listOfOption = children;
+  }
+  onSubmit(title: string, desc: string, tag: any) {
+    console.log(title);
   }
 }

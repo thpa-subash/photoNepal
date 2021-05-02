@@ -56,3 +56,6 @@ button {
 .details {
   margin-top: 20px;
 }
+nz-select {
+  width: 100%;
+}

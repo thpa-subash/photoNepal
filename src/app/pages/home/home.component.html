@@ -128,9 +128,11 @@
           <div class="headName">
             <h3>New Users</h3>
             <h5 style="float-right">
-              <button nz-button nzShape="round" nzType="primary">
-                View All
-              </button>
+              <a [routerLink]="['/users']">
+                <button nz-button nzShape="round" nzType="primary">
+                  View All
+                </button>
+              </a>
             </h5>
           </div>
           <nz-list>
@@ -178,9 +180,11 @@
             </nz-list-item>
           </nz-list>
         </div>
-        <button nz-button nzShape="round" nzType="primary">
-          View Complete Reports<i nz-icon nzType="arrow-right"></i>
-        </button>
+        <a [routerLink]="['/popular-photos']">
+          <button nz-button nzShape="round" nzType="primary">
+            View Complete Reports<i nz-icon nzType="arrow-right"></i>
+          </button>
+        </a>
       </div>
       <div
         nz-col
@@ -207,9 +211,11 @@
             </nz-list-item>
           </nz-list>
         </div>
-        <button nz-button nzShape="round" nzType="primary">
-          View Complete Reports<i nz-icon nzType="arrow-right"></i>
-        </button>
+        <a [routerLink]="['/top-photographers']">
+          <button nz-button nzShape="round" nzType="primary">
+            View Complete Reports<i nz-icon nzType="arrow-right"></i>
+          </button>
+        </a>
       </div>
       <div
         nz-col
@@ -236,9 +242,11 @@
             </nz-list-item>
           </nz-list>
         </div>
-        <button nz-button nzShape="round" nzType="primary">
-          View Complete Reports<i nz-icon nzType="arrow-right"></i>
-        </button>
+        <a [routerLink]="['/top-followers']">
+          <button nz-button nzShape="round" nzType="primary">
+            View Complete Reports<i nz-icon nzType="arrow-right"></i>
+          </button>
+        </a>
       </div>
     </div>
   </div>

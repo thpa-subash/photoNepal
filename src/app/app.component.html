@@ -39,12 +39,33 @@
   <nz-layout class="right-layout">
     <nz-header>
       <div class="app-header">
+        <div class="header-left">
+          <a [routerLink]="'/add-photo'">
+            <button nz-button nzShape="round" nzType="primary">
+              Upload Photos
+            </button>
+          </a>
+        </div>
         <div class="header-right">
           <div class="header-right-content">
-            <div>
-              <i nz-icon nzType="bell" style="font-size: 24px; color: #08c"></i>
+            <div class="notification">
+              <a nz-dropdown [nzDropdownMenu]="menu1">
+                <i
+                  nz-icon
+                  nzType="bell"
+                  style="font-size: 24px; color: #08c"
+                ></i
+              ></a>
+              <nz-dropdown-menu #menu1="nzDropdownMenu">
+                <nz-list nzBordered nz-menu>
+                  <nz-list-item class="notify" *ngFor="let item of data">
+                    {{ item }}
+                    <span nz-typography><mark>4 hours Ago</mark></span>
+                  </nz-list-item>
+                </nz-list>
+              </nz-dropdown-menu>
             </div>
-            <div>
+            <div class="userAccount">
               <a nz-dropdown [nzDropdownMenu]="menu">
                 <nz-avatar nzIcon="user"></nz-avatar>
               </a>
@@ -53,12 +74,13 @@
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu nzSelectable>
               <li nz-menu-item>
-                <i nz-icon nzType="user" style="color: black"></i> Profile
+                <i nz-icon nzType="user" style="color: black"></i> My Profile
               </li>
-              <li nz-menu-item>2nd menu item</li>
+              <li nz-menu-divider></li>
               <li nz-menu-item>
                 <i nz-icon nzType="setting" style="color: black"></i> Settings
               </li>
+              <li nz-menu-divider></li>
               <li nz-menu-item>
                 <i nz-icon nzType="logout" style="color: black"></i> Logout
               </li>

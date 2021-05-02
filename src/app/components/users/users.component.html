@@ -28,9 +28,8 @@
             <tr>
               <th nzWidth="30%">Name</th>
               <th>Status</th>
-
+              <th>Photos</th>
               <th>Action</th>
-              <th>Tags</th>
             </tr>
           </thead>
           <tbody>
@@ -61,6 +60,7 @@
                   ></nz-option>
                 </nz-select>
               </td>
+              <td>{{ data.photos }}</td>
               <td>
                 <a
                   nz-popconfirm
@@ -68,20 +68,6 @@
                   (nzOnConfirm)="deleteRow(data.id)"
                   >Delete</a
                 >
-              </td>
-              <td>
-                <nz-select
-                  [(ngModel)]="data.status"
-                  [nzSize]="size"
-                  nzMode="tags"
-                  nzPlaceHolder="Please select"
-                >
-                  <nz-option
-                    *ngFor="let option of userStatus"
-                    [nzLabel]="option.status"
-                    [nzValue]="option.status"
-                  ></nz-option>
-                </nz-select>
               </td>
             </tr>
           </tbody>

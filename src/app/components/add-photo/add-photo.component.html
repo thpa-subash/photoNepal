@@ -80,7 +80,7 @@
                 />
               </nz-form-control>
             </nz-form-item>
-            <nz-form-item>
+            <!-- <nz-form-item>
               <nz-form-label [nzSpan]="7">Tags</nz-form-label>
               <nz-form-control [nzSpan]="15">
                 <input
@@ -90,25 +90,39 @@
                   formControlName="tags"
                 />
               </nz-form-control>
-            </nz-form-item>
-            <!-- <nz-form-item>
+            </nz-form-item>-->
+            <!--
+            <nz-form-item>
               <nz-form-label [nzSpan]="7">Tag</nz-form-label>
               <nz-form-control [nzSpan]="15">
                 <nz-select
-                  [(ngModel)]="editPhoto.sel"
+                  [(ngModel)]="sel"
                   nzMode="tags"
-                  formControlName="tags"
+                  formControlName="tag"
                   nzPlaceHolder="Please select Tags afs"
                 >
                   <nz-option
                     *ngFor="let attribute of sub"
                     [nzLabel]="attribute.label"
                     [nzValue]="attribute.value"
-                  ></nz-option>
+                    >{{ attribute.value }}</nz-option
+                  >
                 </nz-select>
               </nz-form-control>
-            </nz-form-item> -->
+            </nz-form-item>-->
 
+            <!--<nz-select
+              nzMode="tags"
+              formControlName="tag"
+              nzPlaceHolder="Tag Mode"
+              [(ngModel)]="sel"
+            >
+              <nz-option
+                *ngFor="let option of sub"
+                [nzLabel]="option.label"
+                [nzValue]="option.value"
+              ></nz-option>
+            </nz-select>-->
             <nz-form-item>
               <nz-form-label [nzSpan]="7">Description</nz-form-label>
               <nz-form-control [nzSpan]="15">
@@ -123,8 +137,32 @@
               </nz-form-control>
             </nz-form-item>
           </form>
-
-          <button nz-button nzType="primary" nzShape="round">Submit</button>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="7">Tags</nz-form-label>
+            <nz-form-control [nzSpan]="15">
+              <nz-select
+                [(ngModel)]="photoTags"
+                nzMode="tags"
+                nzPlaceHolder="Please select"
+              >
+                <nz-option
+                  *ngFor="let option of listOfOption"
+                  [nzLabel]="option.label"
+                  [nzValue]="option.value"
+                ></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+          <button
+            nz-button
+            nzType="primary"
+            (click)="
+              onSubmit(editPhoto.user, editPhoto.previewURL, listOfOption)
+            "
+            nzShape="round"
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
